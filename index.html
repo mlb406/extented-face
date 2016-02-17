@@ -14,10 +14,17 @@
 					"hr_markers": hr_markers,
 				};
 				
+				localStorage.setItem(1, JSON.stringify(options));
+				
 				document.location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
 			}
 			
 			$(function() {
+				if (localStorage.getItem(1)) {
+					var options = JSON.parse(localStorage.getItem(1));
+					$("#min-markers").val(options.min_markers);
+					$("#hr_markers").val(options.hr_markers);
+				}
 				$("#submit").click(function() {
 					getParams();
 				});
