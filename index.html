@@ -9,11 +9,19 @@
 				var min_markers = $("#min-markers").val();
 				var hr_markers = $("#hr-markers").val();
 				var themeColor = $("#theme-color").val();
+				var dateOn = $("#date").val();
+				var date;
+				if (dateOn === true) {
+					date = 1;
+				} else {
+					date = 0;
+				}
 				
 				var options = {
 					"min_markers": min_markers,
 					"hr_markers": hr_markers,
-					"theme": themeColor
+					"theme": themeColor,
+					"date": date
 				};
 				
 				localStorage.setItem(1, JSON.stringify(options));
@@ -27,6 +35,7 @@
 					$("#min-markers").val(options.min_markers);
 					$("#hr_markers").val(options.hr_markers);
 					$("#theme-color").val(options.theme);
+					$("#date").val(options.date);
 				}
 				$("#submit").click(function() {
 					getParams();
@@ -56,6 +65,10 @@
 				<label class="item">
 					Theme color
 					<input type="text" class="item-color item-color-normal" id="theme-color" value="#FF5500"> 
+				</label>
+				<label class="item">
+					Date
+					<input type="checkbox" class="item-toggle" id="date" checked>
 				</label>
 			</div>
 			<div class="item-container-footer">
