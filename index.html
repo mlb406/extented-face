@@ -6,10 +6,12 @@
 		<script src="slate/dist/js/slate.js"></script>
 		<script>
 			function getParams() {
-				var markers = $("#markers").val();
+				var min_markers = $("#min-markers").val();
+				var hr_markers = $("#hr-markers").val();
 				
 				var options = {
-					"markers": markers,
+					"min_markers": markers,
+					"hr_markers": hr_markers,
 				};
 				
 				document.location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
@@ -28,10 +30,17 @@
 			<div class="item-container-content">
 				<label class="item">
 					Minute markers
-					<select name="minute-markers" id="markers" dir="rtl" class="item-select">
-						<option class="item-select-option" selected>Lines</option>
-						<option class="item-select-option">Circles</option>
-						<option class="item-select-option">None</option>
+					<select name="minute-markers" id="min-markers" dir="rtl" class="item-select">
+						<option class="item-select-option" value="0">None</option>
+						<option class="item-select-option" selected value="1">Lines</option>
+						<option class="item-select-option"value="2">Circles</option>
+					</select>
+				</label>
+				<label class="item">
+					Hour markers
+					<select name="hour-markers" id="hr-markers" dir="rtl" class="item-select">
+						<option class="item-select-option" value="0">None</option>
+						<option class="item-select-option" selected value="1">Lines</option>
 					</select>
 				</label>
 			</div>
