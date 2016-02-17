@@ -8,10 +8,12 @@
 			function getParams() {
 				var min_markers = $("#min-markers").val();
 				var hr_markers = $("#hr-markers").val();
+				var themeColor = $("#theme-color").val();
 				
 				var options = {
 					"min_markers": min_markers,
 					"hr_markers": hr_markers,
+					"theme": themeColor
 				};
 				
 				localStorage.setItem(1, JSON.stringify(options));
@@ -24,6 +26,7 @@
 					var options = JSON.parse(localStorage.getItem(1));
 					$("#min-markers").val(options.min_markers);
 					$("#hr_markers").val(options.hr_markers);
+					$("#theme-color").val(options.theme);
 				}
 				$("#submit").click(function() {
 					getParams();
@@ -49,6 +52,10 @@
 						<option class="item-select-option" value="0">None</option>
 						<option class="item-select-option" selected value="1">Lines</option>
 					</select>
+				</label>
+				<label class="item">
+					Theme color
+					<input type="text" class="item-color item-color-normal" id="theme-color" value="#FF5500"> 
 				</label>
 			</div>
 			<div class="item-container-footer">
