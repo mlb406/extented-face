@@ -3,7 +3,24 @@
 	<link rel="stylesheet" href="slate/dist/css/slate.css">
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="slate/dist/js/slate.js"></script>
+		<script src="slate/dist/js/slate.js"></scr"ipt>
+		<script>
+			function getParams() {
+				var markers = $("#markers").val();
+				
+				var options = {
+					"markers": markers,
+				};
+				
+				document.location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+			}
+			
+			$(function() {
+				$("#submit").click(function() {
+					getParams();
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div class="item-container">
@@ -11,7 +28,7 @@
 			<div class="item-container-content">
 				<label class="item">
 					Minute markers
-					<select name="minute-markers" dir="rtl" class="item-select">
+					<select name="minute-markers" id="markers" dir="rtl" class="item-select">
 						<option class="item-select-option" selected>Lines</option>
 						<option class="item-select-option">Circles</option>
 						<option class="item-select-option">None</option>
@@ -24,7 +41,7 @@
 		</div>
 		<div class="item-container">
 			<div class="button-container">
-				<input type="button" class="item-button" value="SUBMIT">
+				<input type="button" id="submit" class="item-button" value="SUBMIT">
 			</div>
 		</div>
 		<div class="item-container">
